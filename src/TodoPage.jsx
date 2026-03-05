@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import TodoNavbar from "./TodoNavbar";
+import TodoNav from "./TodoNav";
 import TodoInput from "./TodoInput";
 import TodoTab from "./TodoTab";
 import TodoList from "./TodoList"; 
@@ -69,7 +69,7 @@ function TodoPage() {
     <>
       <div id="todoListPage" className="bg-half-yellow min-h-screen">
 
-        <TodoNavbar />
+        <TodoNav />
 
         <div className="h-screen mx-auto px-8 py-4">
           <div className="w-full sm:w-[500px] mx-auto">
