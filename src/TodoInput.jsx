@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function TodoInput({ onAdd }) {
+function TodoInput({ onAdd , inputRef }) {
   const [value, setValue] = useState("");
 
   const submit = () => {
@@ -22,6 +22,7 @@ function TodoInput({ onAdd }) {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         onKeyDown={onKeyDown}
+        ref={inputRef}
       />
       <button
         type="button"

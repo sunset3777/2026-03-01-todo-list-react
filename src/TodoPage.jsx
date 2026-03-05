@@ -1,17 +1,38 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import TodoNav from "./TodoNav";
 import TodoInput from "./TodoInput";
 import TodoTab from "./TodoTab";
 import TodoList from "./TodoList"; 
 
+const STORAGE_KEY = "todoList.todos";
+
 function TodoPage() {
 
   //  todos state：存所有待辦事項
-  const [todos, setTodos] = useState([]);
+
+  const inputRef = useRef(null);
 
   // status state：控制目前 tab（all / pending / completed）
   const [status, setStatus] = useState("all");
 
+  // 初始化：只跑一次（副作用）
+const [todos, setTodos] = useState(() => {
+  const raw = localStorage.getItem(STORAGE_KEY);
+
+  if (!raw) return [];
+
+  try {
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+});
+
+// 監聽 todos 變化：寫回 localStorage（副作用）
+useEffect(() => {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+}, [todos]);
 
   //  新增 todo（給 TodoInput 使用）
   const handleAdd = (text) => {
@@ -26,8 +47,9 @@ function TodoPage() {
 
     // 新 todo 放在最前面
     setTodos((prev) => [newTodo, ...prev]);
+    inputRef.current?.focus();
   };
-
+  
 
   // 切換完成狀態（checkbox）
   const handleToggle = (id) => {
@@ -84,7 +106,10 @@ function TodoPage() {
           <div className="w-full sm:w-[500px] mx-auto">
 
             {/* TodoInput：新增待辦 */}
-            <TodoInput onAdd={handleAdd} />
+            <TodoInput 
+            onAdd={handleAdd}
+            inputRef={inputRef}
+             />
 
             <div className="bg-white rounded-lg shadow-md">
 
