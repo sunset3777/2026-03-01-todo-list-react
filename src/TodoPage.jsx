@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { useState } from "react";
 import TodoNavbar from "./TodoNavbar";
 import TodoInput from "./TodoInput";
@@ -6,22 +5,9 @@ import TodoTab from "./TodoTab";
 
 function TodoPage () {
     const [status, setStatus] = useState("all");
-=======
-import { useMemo, useState } from "react";
-import TodoNavbar from "./TodoNavbar";
-import TodoInput from "./TodoInput";
-import TodoTab from "./TodoTab";
-import TodoList from "./TodoList"; 
-
-function TodoPage() {
->>>>>>> feature-TodoList
 
   //  todos state：存所有待辦事項
   const [todos, setTodos] = useState([]);
-
-  // status state：控制目前 tab（all / pending / completed）
-  const [status, setStatus] = useState("all");
-
 
   //  新增 todo（給 TodoInput 使用）
   const handleAdd = (text) => {
