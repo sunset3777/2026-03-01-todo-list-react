@@ -1,7 +1,10 @@
+import { useState } from "react";
 import TodoNavbar from "./TodoNavbar";
 import TodoInput from "./TodoInput";
+import TodoTab from "./TodoTab";
 
 function TodoPage () {
+    const [status, setStatus] = useState("all");
 
     return(
     <>
@@ -11,11 +14,10 @@ function TodoPage () {
             <div className ="w-full sm:w-[500px] mx-auto">
                 <TodoInput/>
                 <div className ="bg-white rounded-lg shadow-md">
-                    <ul className ="flex">
-                        <li className = "flex-1"><a href="#" className ="block text-center font-bold p-4 border-b-2 border-[#333333] text-[#333333]">全部</a></li>
-                        <li className = "flex-1"><a href="#" className ="block text-center font-bold p-4 border-b-2 border-[#efefef] text-[#9F9A91]">待完成</a></li>
-                        <li className = "flex-1"><a href="#" className ="block text-center font-bold p-4 border-b-2 border-[#efefef] text-[#9F9A91]">已完成</a></li>
-                    </ul>
+                    <TodoTab
+                    currentStatus={status}
+                    onChangeStatus={setStatus}
+                    />
                     <div className ="pt-[23px] pb-[32px] pl-[24px] pr-[17px]">
                         <ul className ="mb-4">
                             <li className ="group flex items-center mb-[17px]">
