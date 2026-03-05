@@ -1,5 +1,4 @@
 import TodoNavbar from "./TodoNavbar";
-import TodoInput from "./TodoInput";
 
 function TodoPage () {
 
@@ -7,7 +6,9 @@ function TodoPage () {
     <>
     <div id="todoListPage" className ="bg-half-yellow min-h-screen">
         <TodoNavbar />
-        <TodoInput/>
+        <div className ="h-screen mx-auto px-8 py-4">
+            <div className ="w-full sm:w-[500px] mx-auto">
+                <TodoInput/>
                 <div className ="bg-white rounded-lg shadow-md">
                     <ul className ="flex">
                         <li className = "flex-1"><a href="#" className ="block text-center font-bold p-4 border-b-2 border-[#333333] text-[#333333]">全部</a></li>
@@ -78,6 +79,8 @@ function TodoPage () {
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
 </>
 )
 };
