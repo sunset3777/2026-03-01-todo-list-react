@@ -60,6 +60,15 @@ function TodoPage () {
   // 已完成數量
   const completedCount = todos.filter((t) => t.checked).length;
 
+  // 待辦事項編輯
+  const handleEdit = (id, nextContent) => {
+  const content = nextContent.trim();
+  if (!content) return;
+  setTodos((prev) =>
+    prev.map((todo) => (todo.id === id ? { ...todo, content } : todo))
+  );
+};
+
 
 
   return (
@@ -89,6 +98,7 @@ function TodoPage () {
                   todos={filteredTodos}
                   onToggle={handleToggle}
                   onDelete={handleDelete}
+                  onEdit={handleEdit}
                 />
 
                 {/* 底部資訊 */}
