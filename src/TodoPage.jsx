@@ -1,23 +1,15 @@
+import TodoNavbar from "./TodoNavbar";
+import TodoInput from "./TodoInput";
+
 function TodoPage () {
 
     return(
     <>
     <div id="todoListPage" className ="bg-half-yellow min-h-screen">
-        <nav className ="flex justify-between pt-6 px-8 mb-4 sm:mb-0">
-            <h1><a className ="block w-[243px] h-[39px] bg-[url('https://upload.cc/i1/2022/03/23/8vTzYG.png')] bg-no-repeat overflow-hidden whitespace-nowrap indent-[101%]" href="#">ONLINE TODO LIST</a></h1>
-            <ul className ="flex text-base">
-                <li className =" hidden sm:block"><a className ="no-underline text-[#333333] ml-0 sm:ml-6 hover:text-[#d87355]" href="#"><span className ="font-bold">王小明的代辦</span></a></li>
-                <li><a className ="no-underline text-[#333333] ml-0 sm:ml-6 hover:text-[#d87355]" href="#loginPage">登出</a></li>
-            </ul>
-        </nav>
+        <TodoNavbar />
         <div className ="h-screen mx-auto px-8 py-4">
             <div className ="w-full sm:w-[500px] mx-auto">
-                <div className ="w-full flex relative mb-8 shadow-md">
-                    <input className ="w-full h-[47px] rounded-[10px] pl-4" type ="text" placeholder="請輸入待辦事項"/>
-                    <a className="absolute top-1 right-1 w-10 h-[39px] bg-[#333333] text-white rounded-[10px] flex items-center justify-center" href="#">
-                        <i className ="fa-solid fa-plus"></i>
-                    </a>
-                </div>
+                <TodoInput/>
                 <div className ="bg-white rounded-lg shadow-md">
                     <ul className ="flex">
                         <li className = "flex-1"><a href="#" className ="block text-center font-bold p-4 border-b-2 border-[#333333] text-[#333333]">全部</a></li>
