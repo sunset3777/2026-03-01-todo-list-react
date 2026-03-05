@@ -1,4 +1,5 @@
 import TodoNavbar from "./TodoNavbar";
+import TodoInput from "./TodoInput";
 
 function TodoPage () {
 
