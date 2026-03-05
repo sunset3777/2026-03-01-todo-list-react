@@ -1,4 +1,4 @@
-import TodoNavbar from "../components/todo/TodoNavbar";
+import TodoNavbar from "./TodoNavbar";
 
 function TodoPage () {
 
